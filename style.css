@@ -4,7 +4,7 @@
 
   --light-gray: #f5f5f5;
   --medium-gray: #d0d0d0;
-  --drak-gray: rgb(160, 160, 160);
+  --dark-gray: rgb(160, 160, 160);
 }
 
 html {
@@ -76,7 +76,7 @@ button.add:hover {
 }
 
 button.add:active {
-  background: var(--drak-gray);
+  background: var(--dark-gray);
 }
 
 /* Books section */
@@ -140,7 +140,7 @@ footer {
 
 /* modal */
 .modal {
-  display: unset; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding: 20rem; /* Location of the box */
@@ -161,11 +161,24 @@ footer {
   gap: 2rem;
   background-color: #fefefe;
   margin: auto;
-  padding: 4rem;
+  padding: 2rem;
   border: 1px solid #888;
   width: 50rem;
   border-radius: 1rem;
   align-items: center;
+  padding-bottom: 5rem;
+  transition: 02s ease-in-out;
+}
+
+.modal-content .close {
+  font-size: 4rem;
+  margin-left: auto;
+  cursor: pointer;
+  color: var(--dark-gray);
+}
+
+.modal-content .close:hover {
+  color: black;
 }
 
 .modalMessage {
@@ -223,6 +236,22 @@ footer {
   }
 }
 
+@keyframes zoomOutModal {
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  0% {
+    transform: scale(0);
+  }
+}
+
 .modalZoom {
   animation: zoomInModal 0.25s ease;
+}
+
+.modalZoomOut {
+  animation: zoomOutModal 0.25s ease;
 }
