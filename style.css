@@ -1,0 +1,125 @@
+:root {
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* sets base font size to 10px */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* global selectors */
+button {
+  cursor: pointer;
+}
+
+/* header section */
+header {
+  text-align: center;
+  padding: 2.5rem;
+}
+
+h2 {
+  font-size: 4.5rem;
+}
+
+/* Content section */
+.content {
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 5rem;
+}
+
+button,
+.book {
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  border: unset;
+}
+
+button.add {
+  width: 30rem;
+  padding: 2rem;
+  font-size: 2.5rem;
+  border: unset;
+  box-shadow: var(--box-shadow);
+  font-weight: 700;
+  background: white;
+}
+
+button.add:hover {
+  background: #d0d0d0;
+}
+
+button.add:active {
+  background: rgb(160, 160, 160);
+}
+
+/* Books section */
+.books {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(30rem, 1fr));
+  gap: 4rem;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  background: white;
+  gap: 2rem;
+  align-items: center;
+}
+
+.book,
+.book button {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.book button {
+  padding: 1.5rem;
+  width: 30rem;
+}
+
+button.read {
+  background-color: #6bcf63;
+}
+
+button.read:hover {
+  background-color: #5eb657;
+}
+
+button.read.unread {
+  background-color: #f66a6a;
+}
+button.read.unread:hover {
+  background-color: #de5f5f;
+}
+
+button.remove:hover {
+  background: #d0d0d0;
+}
+
+/* footer */
+footer {
+  font-size: 2rem;
+  position: absolute;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background: #f5f5f5;
+}
