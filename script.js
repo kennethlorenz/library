@@ -11,3 +11,14 @@ Book.prototype.info = function () {
 };
 
 function addBookToLibrary() {}
+
+const modalCloseBtn = document.querySelector(".close");
+const modal = document.querySelector(".modal");
+const addBookBtn = document.querySelector(".add");
+
+addBookBtn.addEventListener("click", () => {
+  modal.style.display = "unset";
+});
+modalCloseBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
