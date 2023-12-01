@@ -1,6 +1,10 @@
 :root {
   --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --light-gray: #f5f5f5;
+  --medium-gray: #d0d0d0;
+  --drak-gray: rgb(160, 160, 160);
 }
 
 html {
@@ -22,7 +26,7 @@ html {
 /* global selectors */
 
 body {
-  background: #f5f5f5;
+  background: var(--light-gray);
 }
 button {
   cursor: pointer;
@@ -68,11 +72,11 @@ button.add {
 }
 
 button.add:hover {
-  background: #d0d0d0;
+  background: var(--medium-gray);
 }
 
 button.add:active {
-  background: rgb(160, 160, 160);
+  background: var(--drak-gray);
 }
 
 /* Books section */
@@ -118,7 +122,7 @@ button.read.unread:hover {
 }
 
 button.remove:hover {
-  background: #d0d0d0;
+  background: var(--medium-gray);
 }
 
 /* footer */
@@ -129,7 +133,96 @@ footer {
   padding: 3rem;
   display: flex;
   justify-content: center;
-  background: #f5f5f5;
+  background: var(--light-gray);
   left: 0;
   bottom: 0;
+}
+
+/* modal */
+.modal {
+  display: unset; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 20rem; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 4rem;
+  border: 1px solid #888;
+  width: 50rem;
+  border-radius: 1rem;
+  align-items: center;
+}
+
+.modalMessage {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal input,
+.modal label,
+.modal button.submit {
+  font-size: 2rem;
+}
+
+.modal input {
+  padding: 2rem;
+  border-radius: 1rem;
+  outline: none;
+  border: var(--medium-gray) 1px solid;
+  font-size: 2rem;
+}
+
+.modal label {
+  display: flex;
+  font-size: 2rem;
+  gap: 3rem;
+}
+
+.modal label input[type="checkbox"] {
+  width: 2rem;
+}
+
+.modal button.submit {
+  width: 30rem;
+  padding: 2rem;
+}
+
+.modal button.submit:hover {
+  background: var(--medium-gray);
+}
+
+.modal button.submit:active {
+  background: var(--drak-gray);
+}
+
+@keyframes zoomInModal {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modalZoom {
+  animation: zoomInModal 0.25s ease;
 }
