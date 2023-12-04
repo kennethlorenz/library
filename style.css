@@ -114,10 +114,10 @@ button.read:hover {
   background-color: #5eb657;
 }
 
-button.read.unread {
+button.unread {
   background-color: #f66a6a;
 }
-button.read.unread:hover {
+button.unread:hover {
   background-color: #de5f5f;
 }
 
@@ -221,7 +221,7 @@ footer {
 }
 
 .modal button.submit:active {
-  background: var(--drak-gray);
+  background: var(--dark-gray);
 }
 
 @keyframes zoomInModal {
