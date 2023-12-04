@@ -8,43 +8,33 @@
   </head>
   <body>
     <div id="myModal" class="modal">
-      <div class="modal-content">
-        <p class="close">&times;</p>
-        <p class="modalMessage">Add New Book</p>
-        <input type="text" placeholder="Title" />
-        <input type="text" placeholder="Author" />
-        <input type="number" placeholder="Pages ex. (1, 2, 3)" />
-        <label for="read"
-          ><p>Have you read it?</p>
-          <input type="checkbox" name="read" id="read"
-        /></label>
-        <button class="submit">Submit</button>
-      </div>
+      <form method="post" id="form">
+        <div class="modal-content">
+          <p class="close">&times;</p>
+          <p class="modalMessage">Add New Book</p>
+          <input type="text" id="title" placeholder="Title" />
+          <input type="text" id="author" placeholder="Author" />
+          <input type="number" id="pages" placeholder="Pages ex. (1, 2, 3)" />
+          <label for="read"
+            ><p>Have you read it?</p>
+            <input type="checkbox" name="read" id="read"
+          /></label>
+          <button class="submit">Submit</button>
+        </div>
+      </form>
     </div>
     <header><h2>Library</h2></header>
     <section class="content">
       <button class="add">+ Add Book</button>
       <div class="books">
         <div class="book">
-          <div class="name">Lord of The Rings</div>
+          <div class="title">Lord of The Rings</div>
           <div class="author">Author 1</div>
           <div class="page">3 pages</div>
           <button class="read">Read</button
           ><button class="remove">Remove</button>
         </div>
-        <div class="book">
-          <div class="name">Lord of The Rings</div>
-          <div class="author">Author 1</div>
-          <div class="page">3 pages</div>
-          <button class="read unread">Not Read</button
-          ><button class="remove">Remove</button>
-        </div>
-        <div class="book">
-          <div class="name">Lord of The Rings</div>
-          <div class="author">Author 1</div>
-          <div class="page">3 pages</div>
-          <button class="read">Read</button
-          ><button class="remove">Remove</button>
+        
         </div>
       </div>
     </section>
