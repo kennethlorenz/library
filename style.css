@@ -5,6 +5,12 @@
   --light-gray: #f5f5f5;
   --medium-gray: #d0d0d0;
   --dark-gray: rgb(160, 160, 160);
+  --light-green: #6bcf63;
+  --medium-green: #5eb657;
+  --dark-green: #4c9547;
+  --light-red: #f66a6a;
+  --medium-red: #de5f5f;
+  --dark-red: #bd5050;
 }
 
 html {
@@ -107,11 +113,15 @@ button.add:active {
 }
 
 button.read {
-  background-color: #6bcf63;
+  background-color: var(--light-green);
 }
 
 button.read:hover {
-  background-color: #5eb657;
+  background-color: var(--medium-green);
+}
+
+button.read:active {
+  background-color: var(--dark-green);
 }
 
 button.unread {
@@ -121,8 +131,16 @@ button.unread:hover {
   background-color: #de5f5f;
 }
 
+button.unread:active {
+  background-color: var(--dark-red);
+}
+
 button.remove:hover {
   background: var(--medium-gray);
+}
+
+button.remove:active {
+  background: var(--dark-gray);
 }
 
 /* footer */
