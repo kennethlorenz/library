@@ -1,14 +1,17 @@
-const myLibrary = [{ title: "test", author: "test", pages: 25, read: true }];
-function Book(title, author, pages, read) {
+const myLibrary = [];
+function Book(title, author, pages, read, id) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read; //add ternary? Boolean?
+  this.id = id;
 }
 
 Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.haveRead}.`;
 };
+
+Book.prototype.toggleRead = function () {};
 
 function addBookToLibrary() {}
 
@@ -23,12 +26,20 @@ const pages = document.querySelector("#pages");
 const form = document.querySelector("form");
 const read = document.querySelector("#read");
 const books = document.querySelector(".books");
+var counter = 0;
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const book = new Book(title.value, author.value, pages.value, read.checked);
-  addBook(book);
+  const book = new Book(
+    title.value,
+    author.value,
+    pages.value,
+    read.checked,
+    counter
+  );
+  addBook(book, counter);
   closeModal();
+  counter += 1;
 });
 
 function displayBooks() {
@@ -37,7 +48,8 @@ function displayBooks() {
   });
 }
 
-function addBook(book) {
+function addBook(book, counter) {
+  myLibrary.push(book);
   const card = document.createElement("div");
   const title = document.createElement("div");
   const author = document.createElement("div");
@@ -45,6 +57,7 @@ function addBook(book) {
   const readBtn = document.createElement("button");
   const removeBtn = document.createElement("button");
 
+  card.dataset.id = counter;
   card.classList.add("book");
   title.classList.add("title");
   author.classList.add("author");
@@ -63,7 +76,33 @@ function addBook(book) {
   readBtn.textContent = book.read ? "Read" : "Not Read";
   removeBtn.textContent = "Remove";
   books.appendChild(card);
+
+  readBtn.addEventListener("click", () => {
+    let text = readBtn.textContent;
+    readBtn.textContent = text == "Not Read" ? "Read" : "Not Read";
+    let read = readBtn.className;
+    readBtn.className = read == "unread" ? "read" : "unread";
+    book.read = readBtn.textContent == "Read" ? true : false;
+    console.log(book);
+    console.log(myLibrary);
+  });
+
+  removeBtn.addEventListener("click", (e) => {
+    console.log(e.target.parentNode.dataset.id);
+    books.removeChild(card);
+    var index = myLibrary.findIndex(
+      (item) => item.id == e.target.parentNode.dataset.id
+    );
+    myLibrary.splice(index, 1);
+    console.log(myLibrary);
+  });
+  console.log(myLibrary);
 }
+
+var check = document.querySelector(".check");
+check.addEventListener("click", () => {
+  console.log(myLibrary.length);
+});
 
 function resetForm() {
   form.reset();
@@ -79,6 +118,7 @@ function closeModal() {
 }
 
 addBookBtn.addEventListener("click", () => {
+  console.log(myLibrary);
   modal.style.display = "unset";
   modalContent.classList.add("modalZoom");
   modalContent.classList.remove("modalZoomOut");
@@ -87,4 +127,4 @@ modalCloseBtn.addEventListener("click", () => {
   closeModal();
 });
 
-window.onload(displayBooks());
+displayBooks();
