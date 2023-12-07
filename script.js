@@ -7,12 +7,6 @@ function Book(title, author, pages, read, id) {
   this.id = id;
 }
 
-Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.haveRead}.`;
-};
-
-Book.prototype.toggleRead = function () {};
-
 function addBookToLibrary() {}
 
 const modalCloseBtn = document.querySelector(".close");
@@ -98,11 +92,6 @@ function addBook(book, counter) {
   });
   console.log(myLibrary);
 }
-
-var check = document.querySelector(".check");
-check.addEventListener("click", () => {
-  console.log(myLibrary.length);
-});
 
 function resetForm() {
   form.reset();
