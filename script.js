@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [{ title: "test", author: "test", pages: 25, read: true }];
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -27,13 +27,17 @@ const books = document.querySelector(".books");
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const book = new Book(title.value, author.value, pages.value, read.checked);
-  myLibrary.push(book);
   addBook(book);
   closeModal();
 });
 
+function displayBooks() {
+  myLibrary.map((book) => {
+    addBook(book);
+  });
+}
+
 function addBook(book) {
-  console.log(`From book card function ${book.title}`);
   const card = document.createElement("div");
   const title = document.createElement("div");
   const author = document.createElement("div");
@@ -58,8 +62,7 @@ function addBook(book) {
   page.textContent = book.pages;
   readBtn.textContent = book.read ? "Read" : "Not Read";
   removeBtn.textContent = "Remove";
-
-  books.append(card);
+  books.appendChild(card);
 }
 
 function resetForm() {
@@ -83,3 +86,5 @@ addBookBtn.addEventListener("click", () => {
 modalCloseBtn.addEventListener("click", () => {
   closeModal();
 });
+
+window.onload(displayBooks());
