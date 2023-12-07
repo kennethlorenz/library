@@ -161,7 +161,7 @@ footer {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding: 20rem; /* Location of the box */
+  padding: 10rem; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -181,7 +181,7 @@ footer {
   margin: auto;
   padding: 2rem;
   border: 1px solid #888;
-  width: 50rem;
+  width: 40rem;
   border-radius: 1rem;
   align-items: center;
   padding-bottom: 5rem;
@@ -200,7 +200,7 @@ footer {
 }
 
 .modalMessage {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
 }
