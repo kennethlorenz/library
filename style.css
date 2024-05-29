@@ -158,7 +158,7 @@ footer {
 
 /* modal */
 .modal {
-  display: none; /* Hidden by default */
+  /*display: none;  Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding: 10rem; /* Location of the box */
@@ -186,6 +186,15 @@ footer {
   align-items: center;
   padding-bottom: 5rem;
   transition: 02s ease-in-out;
+}
+
+.error {
+  color: red;
+  font-size: 1.8rem;
+}
+
+.error.hidden {
+  display: none;
 }
 
 .modal-content .close {
@@ -217,6 +226,10 @@ footer {
   outline: none;
   border: var(--medium-gray) 1px solid;
   font-size: 2rem;
+}
+
+.modal input.invalid {
+  border-color: red;
 }
 
 .modal label {
