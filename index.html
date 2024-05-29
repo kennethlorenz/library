@@ -12,9 +12,18 @@
         <div class="modal-content">
           <p class="close">&times;</p>
           <p class="modalMessage">Add New Book</p>
-          <input type="text" id="title" placeholder="Title" />
-          <input type="text" id="author" placeholder="Author" />
+          <input type="text" id="title" placeholder="Title" required />
+          <span id="titleError" class="error hidden"
+            >Enter the title to continue</span
+          >
+          <input type="text" id="author" placeholder="Author" required />
+          <span id="authorError" class="error hidden"
+            >Enter the author to continue</span
+          >
           <input type="number" id="pages" placeholder="Pages ex. (1, 2, 3)" />
+          <span id="pageError" class="error hidden"
+            >Enter the page to continue</span
+          >
           <label for="read"
             ><p>Have you read it?</p>
             <input type="checkbox" name="read" id="read"
