@@ -27,16 +27,20 @@ var counter = 0;
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const book = new Book(
-    title.value,
-    author.value,
-    pages.value,
-    read.checked,
-    counter
-  );
-  addBook(book, counter);
-  closeModal();
-  counter += 1;
+  if (isFormValid() == true) {
+    const book = new Book(
+      title.value,
+      author.value,
+      pages.value,
+      read.checked,
+      counter
+    );
+    addBook(book, counter);
+    closeModal();
+    counter += 1;
+  } else if (isFormValid() == false) {
+    return;
+  }
 });
 
 function displayBooks() {
@@ -107,6 +111,7 @@ function closeModal() {
     modal.style.display = "none";
   }, 200);
   resetForm();
+  hideErrors();
 }
 
 addBookBtn.addEventListener("click", () => {
@@ -125,9 +130,25 @@ title.addEventListener("focusout", toggleTitleError);
 author.addEventListener("focusout", toggleAuthorError);
 pages.addEventListener("focusout", togglePageError);
 
+function isFormValid() {
+  if (title.vlaue == "" || author.value == "" || pages.value == "") {
+    toggleErrors();
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function toggleErrors() {
+  toggleTitleError();
+  toggleAuthorError();
+  togglePageError();
+}
+
 function toggleTitleError() {
   if (title.value == "") {
     titleError.classList.remove("hidden");
+    return;
   } else {
     titleError.classList.add("hidden");
   }
@@ -135,6 +156,7 @@ function toggleTitleError() {
 function toggleAuthorError() {
   if (author.value == "") {
     authorError.classList.remove("hidden");
+    return;
   } else {
     authorError.classList.add("hidden");
   }
@@ -142,7 +164,14 @@ function toggleAuthorError() {
 function togglePageError() {
   if (pages.value == "") {
     pagesError.classList.remove("hidden");
+    return;
   } else {
     pagesError.classList.add("hidden");
   }
+}
+
+function hideErrors() {
+  titleError.classList.add("hidden");
+  authorError.classList.add("hidden");
+  pagesError.classList.add("hidden");
 }
