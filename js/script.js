@@ -20,6 +20,9 @@ const pages = document.querySelector("#pages");
 const form = document.querySelector("form");
 const read = document.querySelector("#read");
 const books = document.querySelector(".books");
+const titleError = document.getElementById("titleError");
+const authorError = document.getElementById("authorError");
+const pagesError = document.getElementById("pageError");
 var counter = 0;
 
 submitBtn.addEventListener("click", (e) => {
@@ -117,3 +120,29 @@ modalCloseBtn.addEventListener("click", () => {
 });
 
 displayBooks();
+
+title.addEventListener("focusout", toggleTitleError);
+author.addEventListener("focusout", toggleAuthorError);
+pages.addEventListener("focusout", togglePageError);
+
+function toggleTitleError() {
+  if (title.value == "") {
+    titleError.classList.remove("hidden");
+  } else {
+    titleError.classList.add("hidden");
+  }
+}
+function toggleAuthorError() {
+  if (author.value == "") {
+    authorError.classList.remove("hidden");
+  } else {
+    authorError.classList.add("hidden");
+  }
+}
+function togglePageError() {
+  if (pages.value == "") {
+    pagesError.classList.remove("hidden");
+  } else {
+    pagesError.classList.add("hidden");
+  }
+}
