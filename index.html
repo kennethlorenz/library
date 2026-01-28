@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,45 +7,6 @@
     <title>Library</title>
   </head>
   <body>
-    <div id="myModal" class="modal">
-      <form method="post" id="form">
-        <div class="modal-content">
-          <p class="close">&times;</p>
-          <p class="modalMessage">Add New Book</p>
-          <input type="text" id="title" placeholder="Title" required />
-          <span id="titleError" class="error hidden"
-            >Enter the title to continue</span
-          >
-          <input type="text" id="author" placeholder="Author" required />
-          <span id="authorError" class="error hidden"
-            >Enter the author to continue</span
-          >
-          <input type="number" id="pages" placeholder="Pages ex. (1, 2, 3)" />
-          <span id="pageError" class="error hidden"
-            >Enter the page to continue</span
-          >
-          <label for="read"
-            ><p>Have you read it?</p>
-            <input type="checkbox" name="read" id="read"
-          /></label>
-          <button class="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-    <header><h2>Library</h2></header>
-    <section class="content">
-      <button class="add">+ Add Book</button>
-      <div class="books"></div>
-    </section>
-    <footer>
-      <p>
-        Copyright &copy;&nbsp;<span class="currentYear"></span>
-        &nbsp;kennethlorenzg
-      </p>
-      <a href="https://github.com/kennethlorenz" target="_blank"
-        ><img src="./github-mark.svg" alt="github logo"
-      /></a>
-    </footer>
-    <script src="./js/script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
