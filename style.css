@@ -1,0 +1,101 @@
+:root {
+  --box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --light-gray: #f5f5f5;
+  --medium-gray: #d0d0d0;
+  --dark-gray: rgb(160, 160, 160);
+  --light-green: #6bcf63;
+  --medium-green: #5eb657;
+  --dark-green: #4c9547;
+  --light-red: #f66a6a;
+  --medium-red: #de5f5f;
+  --dark-red: #bd5050;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 25px 0;
+}
+
+main,
+footer {
+  background-color: var(--light-gray);
+}
+
+button {
+  cursor: pointer;
+}
+
+.wrapper {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 0.5fr 5fr 0.5fr;
+  grid-template-areas:
+    "h"
+    "m"
+    "f";
+  min-height: 100vh;
+}
+
+header {
+  grid-area: h;
+  font-size: 2rem;
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+}
+
+main {
+  grid-area: m;
+  text-align: center;
+  padding-top: 40px;
+}
+
+#add-book {
+  font-size: 2.5rem;
+  padding: 15px 25px;
+  font-weight: bold;
+  border: unset;
+  background-color: var(--light-gray);
+  border-radius: 10px;
+}
+
+#add-book:hover {
+  background-color: var(--medium-gray);
+}
+
+#add-book:active {
+  background-color: var(--dark-gray);
+}
+
+.books-container {
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  grid-area: f;
+  font-size: 1.8rem;
+}

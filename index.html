@@ -3,10 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display&family=Raleway:wght@300;400&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
+
     <title>Library</title>
   </head>
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>Library</h1>
+      </header>
+      <main>
+        <button id="add-book">+ Add Book</button>
+        <div class="books-container">
+          <div class="book">
+            <p id="title">Harry Potter</p>
+            <p id="author">Test</p>
+            <p id="pages">2</p>
+            <button class="read">Not Read</button>
+            <button class="delete">Delete</button>
+          </div>
+          <div class="book">
+            <p id="title">Harry Potter</p>
+            <p id="author">Test</p>
+            <p id="pages">2</p>
+            <button class="read">Not Read</button>
+            <button class="delete">Delete</button>
+          </div>
+          <div class="book">
+            <p id="title">Harry Potter</p>
+            <p id="author">Test</p>
+            <p id="pages">2</p>
+            <button class="read">Not Read</button>
+            <button class="delete">Delete</button>
+          </div>
+        </div>
+      </main>
+      <footer>Copyright &copy; kennethlorenzg</footer>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
