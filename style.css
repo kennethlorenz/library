@@ -17,6 +17,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  /* footer support */
+  position: relative;
+  min-height: 100%;
 }
 
 *,
@@ -30,6 +34,9 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
+  background-color: var(--light-gray);
+  /* Footer support */
+  margin-bottom: 100px;
 }
 
 header,
@@ -47,22 +54,11 @@ button {
   cursor: pointer;
 }
 
-.wrapper {
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: 0.5fr 5fr 0.5fr;
-  grid-template-areas:
-    "h"
-    "m"
-    "f";
-  min-height: 100vh;
-}
-
 header {
-  grid-area: h;
+  position: relative;
   font-size: 2rem;
   box-shadow: var(--box-shadow);
-  z-index: 1;
+  background-color: white;
 }
 
 main {
@@ -146,6 +142,12 @@ main {
 }
 
 footer {
-  grid-area: f;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
   font-size: 1.8rem;
 }
