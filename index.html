@@ -44,6 +44,40 @@
       </div>
     </main>
     <footer>Copyright &copy; kennethlorenzg</footer>
+    <div class="modal">
+      <form id="addBookForm">
+        <p class="form-title">Add New Book</p>
+
+        <input
+          id="title"
+          type="text"
+          placeholder="Title"
+          maxlength="100"
+          required
+        />
+        <input
+          id="author"
+          type="text"
+          placeholder="Author"
+          maxlength="100"
+          required
+        />
+        <input
+          id="pages"
+          type="number"
+          placeholder="Pages"
+          maxlength="100"
+          required
+        />
+
+        <div class="is-read">
+          <label for="read">Have you read it?</label>
+          <input id="read" type="checkbox" />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
