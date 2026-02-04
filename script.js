@@ -3,7 +3,7 @@ const ADDBOOKFORM = document.getElementById("addBookForm");
 const MODAL = document.querySelector(".modal");
 const SUBMITFORMBTN = document.querySelector(`button[type="submit"]`);
 
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(id, title, author, pages, read) {
   this.id = id;
@@ -35,7 +35,7 @@ function createBookObject() {
   const read = document.getElementById("read").checked;
 
   const newBookObject = new Book(id, title, author, pages, read);
-  console.log(newBookObject);
+  return newBookObject;
 }
 
 function addBookToLibrary() {
@@ -51,7 +51,7 @@ function hideModal() {
 ADDBOOKFORM.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  createBookObject();
+  addBookToLibrary();
   clearForm();
   hideModal();
 });
