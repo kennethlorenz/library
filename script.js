@@ -2,6 +2,7 @@ const ADDBOOKBTN = document.getElementById("add-book");
 const ADDBOOKFORM = document.getElementById("addBookForm");
 const MODAL = document.querySelector(".modal");
 const SUBMITFORMBTN = document.querySelector(`button[type="submit"]`);
+const BOOKSCONTAINER = document.querySelector(".books-container");
 
 let myLibrary = [];
 
@@ -38,8 +39,7 @@ function createBookObject() {
   return newBookObject;
 }
 
-function addBookToLibrary() {
-  const newBook = createBookObject();
+function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
   console.log(myLibrary);
 }
@@ -48,10 +48,62 @@ function hideModal() {
   MODAL.style.display = "none";
 }
 
+function createBookCard(book) {
+  const bookDiv = document.createElement("div");
+  bookDiv.classList.add("book");
+  bookDiv.id = book.id;
+
+  const title = document.createElement("p");
+  title.textContent = book.title;
+
+  const author = document.createElement("p");
+  author.textContent = book.author;
+
+  const pages = document.createElement("p");
+  pages.textContent = book.pages;
+
+  bookDiv.appendChild(title);
+  bookDiv.appendChild(author);
+  bookDiv.appendChild(pages);
+
+  const readButton = document.createElement("button");
+
+  readButton.classList.add("book-button");
+  const isRead = book.read ? "read" : "not-read";
+  const isReadTextContent = book.read ? "Read" : "Not Read";
+
+  readButton.classList.add(isRead);
+  readButton.textContent = isReadTextContent;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("book-button");
+  deleteButton.classList.add("delete");
+  deleteButton.textContent = "Delete";
+
+  bookDiv.appendChild(readButton);
+  bookDiv.appendChild(deleteButton);
+
+  return bookDiv;
+}
+
+function displayAllBooks() {
+  myLibrary.map((book) => {
+    const bookDiv = createBookCard(book);
+    BOOKSCONTAINER.appendChild(bookDiv);
+  });
+}
+
+function addBookToScreen(book) {
+  const bookDiv = createBookCard(book);
+  BOOKSCONTAINER.appendChild(bookDiv);
+}
+
 ADDBOOKFORM.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  addBookToLibrary();
+  const newBook = createBookObject();
+  addBookToLibrary(newBook);
+  addBookToScreen(newBook);
   clearForm();
   hideModal();
 });
