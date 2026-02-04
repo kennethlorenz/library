@@ -16,11 +16,13 @@ function Book(id, title, author, pages, read) {
 
 ADDBOOKBTN.addEventListener("click", () => {
   MODAL.style.display = "flex";
+  document.body.style.overflow = "hidden";
 });
 
 window.onclick = function (e) {
   if (e.target == MODAL) {
     MODAL.style.display = "none";
+    document.body.style.overflow = "unset";
   }
 };
 
