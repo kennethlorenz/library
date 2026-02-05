@@ -61,7 +61,7 @@ function createBookCard(book) {
   bookDiv.id = book.id;
 
   const title = document.createElement("p");
-  title.textContent = book.title;
+  title.textContent = `"${book.title}"`;
 
   const author = document.createElement("p");
   author.textContent = book.author;
