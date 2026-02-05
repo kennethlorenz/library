@@ -55,6 +55,11 @@ function removeBookFromLibrary(id) {
   myLibrary = newArray;
 }
 
+function updateReadByIdFromLibrary(id, readValue) {
+  const indexOfBookToUpdate = myLibrary.findIndex((book) => book.id == id);
+  myLibrary[indexOfBookToUpdate].read = readValue;
+}
+
 function createBookCard(book) {
   const bookDiv = document.createElement("div");
   bookDiv.classList.add("book");
@@ -93,6 +98,16 @@ function createBookCard(book) {
   deleteButton.addEventListener("click", () => {
     bookDiv.remove();
     removeBookFromLibrary(bookDiv.id);
+  });
+
+  readButton.addEventListener("click", () => {
+    let read = readButton.classList.toggle("read");
+    readButton.classList.toggle("not-read", !read);
+
+    let readValue = read ? "Read" : "Not Read";
+    readButton.textContent = readValue;
+
+    updateReadByIdFromLibrary(bookDiv.id, read);
   });
 
   return bookDiv;
