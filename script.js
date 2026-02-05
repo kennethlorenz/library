@@ -21,8 +21,7 @@ ADDBOOKBTN.addEventListener("click", () => {
 
 window.onclick = function (e) {
   if (e.target == MODAL) {
-    MODAL.style.display = "none";
-    document.body.style.overflow = "unset";
+    hideModal();
   }
 };
 
@@ -43,11 +42,17 @@ function createBookObject() {
 
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
-  console.log(myLibrary);
 }
 
 function hideModal() {
   MODAL.style.display = "none";
+  document.body.style.overflow = "unset";
+  clearForm();
+}
+
+function removeBookFromLibrary(id) {
+  const newArray = myLibrary.filter((book) => book.id !== id);
+  myLibrary = newArray;
 }
 
 function createBookCard(book) {
@@ -85,6 +90,11 @@ function createBookCard(book) {
   bookDiv.appendChild(readButton);
   bookDiv.appendChild(deleteButton);
 
+  deleteButton.addEventListener("click", () => {
+    bookDiv.remove();
+    removeBookFromLibrary(bookDiv.id);
+  });
+
   return bookDiv;
 }
 
@@ -106,6 +116,5 @@ ADDBOOKFORM.addEventListener("submit", (e) => {
   const newBook = createBookObject();
   addBookToLibrary(newBook);
   addBookToScreen(newBook);
-  clearForm();
   hideModal();
 });
