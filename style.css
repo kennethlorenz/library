@@ -221,4 +221,5 @@ button[type="submit"] {
 
 #titleError {
   color: var(--medium-red);
+  display: none;
 }
