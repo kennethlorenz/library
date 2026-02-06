@@ -218,3 +218,7 @@ button[type="submit"] {
   border-radius: 10px;
   width: 100%;
 }
+
+#titleError {
+  color: var(--medium-red);
+}
