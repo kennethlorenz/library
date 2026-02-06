@@ -3,6 +3,7 @@ const ADDBOOKFORM = document.getElementById("addBookForm");
 const MODAL = document.querySelector(".modal");
 const SUBMITFORMBTN = document.querySelector(`button[type="submit"]`);
 const BOOKSCONTAINER = document.querySelector(".books-container");
+const TITLEDUPLICATEMESSAGE = document.getElementById("titleError");
 
 let myLibrary = [];
 
@@ -48,6 +49,7 @@ function hideModal() {
   MODAL.style.display = "none";
   document.body.style.overflow = "unset";
   clearForm();
+  hideTitleDuplicateMessage();
 }
 
 function removeBookFromLibrary(id) {
@@ -58,6 +60,18 @@ function removeBookFromLibrary(id) {
 function updateReadByIdFromLibrary(id, readValue) {
   const indexOfBookToUpdate = myLibrary.findIndex((book) => book.id == id);
   myLibrary[indexOfBookToUpdate].read = readValue;
+}
+
+function checkTitleDuplicatesFromLibrary() {
+  const title = document.getElementById("title").value;
+  return myLibrary.findIndex((book) => book.title == title);
+}
+
+function displayTitleDuplicateMessage() {
+  TITLEDUPLICATEMESSAGE.style.display = "unset";
+}
+function hideTitleDuplicateMessage() {
+  TITLEDUPLICATEMESSAGE.style.display = "none";
 }
 
 function createBookCard(book) {
@@ -128,6 +142,12 @@ function addBookToScreen(book) {
 ADDBOOKFORM.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  if (checkTitleDuplicatesFromLibrary() === 0) {
+    displayTitleDuplicateMessage();
+    return;
+  }
+
+  console.log(checkTitleDuplicatesFromLibrary());
   const newBook = createBookObject();
   addBookToLibrary(newBook);
   addBookToScreen(newBook);
